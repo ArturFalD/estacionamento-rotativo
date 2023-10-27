@@ -4,6 +4,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.dao.VagaDAO;
 import model.bean.Vaga;
@@ -13,12 +14,12 @@ import model.bean.Vaga;
  *
  * @author 03134225085
  */
-public class jFListarVagas extends javax.swing.JFrame {
+public class JFListarVagas extends javax.swing.JFrame {
 
     /**
-     * Creates new form jFListarVagas
+     * Creates new form JFListarVagas
      */
-    public jFListarVagas() {
+    public JFListarVagas() {
         initComponents();
     }
 
@@ -67,6 +68,11 @@ public class jFListarVagas extends javax.swing.JFrame {
         });
 
         jBtnAlterar.setText("Alterar");
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +133,16 @@ public class jFListarVagas extends javax.swing.JFrame {
         readJTable();
     }//GEN-LAST:event_formWindowOpened
 
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+       if(jTVaga.getSelectedRow() != -1){
+           int vagaSelecionada = (int)jTVaga.getValueAt(jTVaga.getSelectedRow(),0);
+           JFAtualizarVaga av = new JFAtualizarVaga(vagaSelecionada);
+           av.setVisible(true);
+       }else{
+           JOptionPane.showMessageDialog(null,"Selecione uma vaga!","Erro",JOptionPane.ERROR_MESSAGE);
+       }
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
+
     public void readJTable(){
         DefaultTableModel modelo = (DefaultTableModel) jTVaga.getModel();
         modelo.setNumRows(0);
@@ -161,20 +177,20 @@ public class jFListarVagas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(jFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(jFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(jFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(jFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFListarVagas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new jFListarVagas().setVisible(true);
+                new JFListarVagas().setVisible(true);
             }
         });
     }
