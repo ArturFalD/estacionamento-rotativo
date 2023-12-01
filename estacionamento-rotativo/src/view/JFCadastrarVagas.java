@@ -40,8 +40,9 @@ public class JFCadastrarVagas extends javax.swing.JFrame {
         Obliqua = new javax.swing.JRadioButton();
         Adicionar = new javax.swing.JButton();
         Remover = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Cadastrar Vaga");
 
@@ -81,6 +82,18 @@ public class JFCadastrarVagas extends javax.swing.JFrame {
         });
 
         Remover.setText("Remover");
+        Remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoverActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +104,8 @@ public class JFCadastrarVagas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Remover)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Adicionar))
@@ -131,7 +146,8 @@ public class JFCadastrarVagas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Adicionar)
-                    .addComponent(Remover))
+                    .addComponent(Remover)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -157,11 +173,22 @@ public class JFCadastrarVagas extends javax.swing.JFrame {
             v.setObliqua(false);
         }
         dao.create(v);
+        dispose();
     }//GEN-LAST:event_AdicionarActionPerformed
 
     private void ParalelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParalelaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ParalelaActionPerformed
+
+    private void RemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverActionPerformed
+        Rua.setText("");
+        Numero.setText("");
+        buttonGroup1.clearSelection();
+    }//GEN-LAST:event_RemoverActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +233,7 @@ public class JFCadastrarVagas extends javax.swing.JFrame {
     private javax.swing.JButton Remover;
     private javax.swing.JTextField Rua;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

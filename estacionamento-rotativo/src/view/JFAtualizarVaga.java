@@ -54,7 +54,7 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         LIdVaga = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -186,6 +186,7 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
             v.setObliqua(false);
         }
         dao.update(v);
+        dispose();
     }//GEN-LAST:event_AdicionarActionPerformed
 
     private void NumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumeroActionPerformed

@@ -50,7 +50,7 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
         Adicionar = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Cadastrar Motorista");
 
@@ -204,14 +204,6 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeActionPerformed
 
-    private void FemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FemActionPerformed
-
-    private void MascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MascActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MascActionPerformed
-
     private void SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SenhaActionPerformed
@@ -233,15 +225,24 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
         m.setEmail(Email.getText());
         m.setSenha(Senha.getText());
         dao.create(m);
+        dispose();
     }//GEN-LAST:event_AdicionarActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private void FemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FemActionPerformed
+
+    private void MascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MascActionPerformed
 
     private void OutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OutroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_OutroActionPerformed
-
-    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CancelarActionPerformed
 
     /**
      * @param args the command line arguments
